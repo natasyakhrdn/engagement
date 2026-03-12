@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Engagement Invitation</title>
+
+<!-- Font Playfair Display -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+    /* Full-page body dengan background gambar asal */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Playfair Display', serif;
+        color: #0a0a0a;
+        text-align: center;
+        background: url(wedding.jpg) center/cover no-repeat fixed;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(241, 238, 238, 0);
+        z-index: -1;
+    }
+
+    /* Start Screen overlay */
+    #startScreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url(wedding.jpg) center/cover no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 10;
+        font-family: 'Playfair Display', serif;
+    }
+
+    #startScreen h1 {
+        font-size: 70px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        text-shadow: 2px 2px 5px rgb(17, 17, 17);
+        line-height: 1.1;
+    }
+
+    #startScreen p {
+        font-size: 28px;
+        font-weight: 600;
+        margin: 5px 0;
+        line-height: 1.2;
+    }
+
+    #startScreen button {
+        padding: 15px 30px;
+        font-size: 20px;
+        border: none;
+        border-radius: 10px;
+        background: rgb(199, 95, 126);
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        font-family: 'Playfair Display', serif;
+        margin-top: 70px;
+        animation: float 0.8s infinite ease-in-out;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-6px); }
+        100% { transform: translateY(0); }
+    }
+
+    /* Hero */
+    .hero {
+        width: 100%;
+        min-height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 40px 20px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+        margin: 0 0 20px 0;
+    }
+
+    .hero p {
+        font-size: 30px;
+        margin: 8px 0;
+    }
+
+    /* Countdown style */
+    #countdown {
+        color: rgb(12, 12, 12);
+        font-size: 22px;
+        margin-top: 5px;
+        margin-bottom: 50px;
+        font-weight: 600;
+        text-shadow: 2px 2px 5px rgb(245, 241, 241);
+        padding: 5px 15px;
+        border-radius: 10px;
+        transition: all 0.5s ease;
+        background: rgba(0,0,0,0);
+    }
+
+    /* Kotak Details */
+    .details {
+        margin: 80px auto;
+        background: rgb(199, 95, 126);
+        padding: 20px;
+        border-radius: 12px;
+        width: 90%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .details h2 {
+        margin-top: 0;
+        font-size: 24px;
+    }
+
+    .details p {
+        font-size: 16px;
+        line-height: 1.4;
+        margin: 5px 0;
+    }
+
+    .btn {
+        margin-top: 20px;
+        padding: 12px 25px;
+        background: #f4b6a6;
+        color: #0a0a0a;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        animation: float 0.8s infinite ease-in-out;
+    }
+</style>
+</head>
+<body>
+
+<!-- Start Screen -->
+<div id="startScreen">
+    <h1>WELCOME!</h1>
+    <p>بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</p>
+    <p>We warmly invite you to celebrate our engagement</p>
+    <button onclick="startInvite()">Open Invitation</button>
+</div>
+
+<!-- Hero Section -->
+<div class="hero">
+    <h1 style="margin-top:70px; margin-bottom:20px;">Our Engagement Celebration</h1>
+    <p style="margin-bottom:20px; line-height:1.6;">
+    Mohd Hashrun <br>
+    <span style="font-size:40px;">&</span> <br>
+    Nurul Natasya
+    </p>
+    <p style="margin-bottom:25px; font-size:30px;">20 June 2026 | 2:00 pm</p>
+    
+    <div id="countdown"></div>
+
+    <p style="font-size:16px; font-style:italic; line-height:1.5; margin-top:15px;">
+        With Allah’s blessings, we joyfully invite you to our engagement.
+    </p>
+    <p style="font-size:16px; font-style:italic; line-height:1.5; margin-top:5px;">
+        May Allah bless our union and guide us on the path of love and faith.
+    </p>
+</div>
+
+<!-- Details -->
+<div class="details">
+    <h2>Our Location</h2>
+    <p>No 8 Jalan SS 4/4 Taman Sri Saujana Kota Tinggi</p>
+    <a href="https://maps.app.goo.gl/uPePUTSKZoZA1MgM9" target="_blank" class="btn">Open Maps</a>
+</div>
+
+<script>
+function startInvite() {
+    document.getElementById('startScreen').style.display = 'none';
+}
+
+const eventDate = new Date("June 20, 2026 14:00:00").getTime();
+
+const countdown = setInterval(function() {
+
+    const now = new Date().getTime();
+    const distance = eventDate - now;
+
+    const countdownDiv = document.getElementById("countdown");
+
+    if (distance > 0) {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        countdownDiv.innerHTML =
+            days + " Days " + hours + " Hours " + minutes + " Minutes " + seconds + " Seconds";
+
+        countdownDiv.style.background = "rgba(0,0,0,0)";
+        countdownDiv.style.color = "rgb(12,12,12)";
+    } else {
+        clearInterval(countdown);
+        countdownDiv.innerHTML = "Today is the day! 💍";
+        countdownDiv.style.background = "rgba(255, 192, 128, 0.9)";
+        countdownDiv.style.color = "#0a0a0a";
+        countdownDiv.style.fontSize = "26px";
+        countdownDiv.style.textShadow = "2px 2px 5px white";
+    }
+
+}, 1000);
+</script>
+
+</body>
+</html>
